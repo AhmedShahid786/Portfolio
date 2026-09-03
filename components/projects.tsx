@@ -32,8 +32,6 @@ function ProjectCard({ project }: { project: Project }) {
                 key={tech.name}
                 className="border-border flex size-10 items-center justify-center rounded-lg border"
               >
-                {/* Source art is full-colour; the design composites these
-                    monochrome, which is what the filter reproduces. */}
                 <Image
                   src={tech.src}
                   alt={tech.name}

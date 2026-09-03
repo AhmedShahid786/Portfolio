@@ -18,7 +18,6 @@ export function Socials() {
           {SOCIAL_LINKS.map((link) => {
             const { name, title, href } = link;
             const isMailto = href.startsWith("mailto:");
-            // `handle` is absent on the mail entry, which has nothing to append.
             const handle = "handle" in link ? link.handle : undefined;
 
             return (

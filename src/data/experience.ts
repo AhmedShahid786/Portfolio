@@ -1,37 +1,26 @@
 export type ExperienceTech = { name: string; src: string };
 
-/** A shipped app credited to a role, with its download count as shown. */
 export type Work = { name: string; downloads: string; src: string };
 
 export type Entry = {
   company: string;
+  companyUrl?: string;
   logo: string;
   role: string;
-  /** Free-form chips after the company name — employment type, years, tenure. */
-  meta: string[];
+  employment?: string;
+  location?: string;
+  period?: string;
+  duration?: string;
+  summary?: string;
   stack: ExperienceTech[];
   projects: Work[];
 };
 
-/*
- * The prose paragraph for an entry is *not* here: it carries emphasis markup,
- * so it lives in `components/experience.tsx`, keyed by `company`, and this file
- * stays JSX-free.
- *
- * Icon-to-label pairings are taken from the Figma frame as-is. Note the second
- * entry labels the Laravel mark "CICD" and the Node mark "Next JS" — that
- * mismatch is in the design, not introduced here.
- *
- * Spelling is inconsistent in the design and reproduced as-is: the project
- * names below read "Sarf Ki Dunya" where the Islamic Desk paragraph in
- * components/experience.tsx reads "Surf Ki Duniya". See HANDOFF §6.4.
- */
 export const EXPERIENCE = [
   {
     company: "Saylani Tech",
     logo: "/images/companies/saylani-tech.png",
     role: "Senior Software Engineer",
-    meta: [],
     stack: [
       { name: "React", src: "/images/tech/react.png" },
       { name: "Aws", src: "/images/tech/aws.svg" },
@@ -39,14 +28,20 @@ export const EXPERIENCE = [
       { name: "Redux", src: "/images/tech/redux.png" },
       { name: "shadcn Ui", src: "/images/tech/shadcn.svg" },
     ],
-    // The design draws a chevron here but supplies no expanded content.
     projects: [],
   },
   {
     company: "Islamic Desk",
     logo: "/images/companies/islamic-desk.png",
     role: "Software Engineer",
-    meta: ["Part Time", "2018-2022", "4y"],
+    employment: "Part Time",
+    summary:
+      "I worked as a Software Engineer at Islamic Desk, contributing to the " +
+      "development of Seerat ki Duniya, Nahw Ki Duniya, and Surf Ki Duniya. " +
+      "My role involved creating effective solutions and working with the team " +
+      "to introduce new functionalities.",
+    period: "2018 — 2022",
+    duration: "4 yrs",
     stack: [
       { name: "React", src: "/images/tech/react.png" },
       { name: "Firebase", src: "/images/tech/firebase.svg" },

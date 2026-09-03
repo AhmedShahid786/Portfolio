@@ -4,12 +4,10 @@ export type Project = {
   title: string;
   description: string;
   href: string;
-  /** Intrinsic size of the cover art, so next/image can reserve the box. */
   cover: { src: string; width: number; height: number };
   stack: ProjectTech[];
 };
 
-// TODO: real project URLs — the Figma frame has no links on the buttons.
 export const PROJECTS = [
   {
     title: "SMIT-LMS",

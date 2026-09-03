@@ -13,8 +13,6 @@ export function Blogs() {
       <ul className="grid gap-8 p-6 sm:grid-cols-2 sm:gap-12">
         {POSTS.map((post) => (
           <li key={post.title} className="flex flex-col gap-4">
-            {/* The design ships a noise-texture placeholder rather than real
-                cover art for the posts. */}
             <NoisePanel className="border-border aspect-[19/10] rounded-sm border" />
 
             <h3 className="font-display text-2xl font-medium">{post.title}</h3>
@@ -51,8 +49,6 @@ export function Blogs() {
         <h3 className="font-display">Reading Now</h3>
 
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
-          {/* Line-art shelf plus the two book covers, exported as one asset:
-              in Figma this is a dozen separately positioned vector strokes. */}
           <Image
             src="/images/reading-now.png"
             alt="Books on a shelf"
@@ -76,7 +72,6 @@ export function Blogs() {
               className="border-border hover:border-secondary flex w-fit items-center gap-2 rounded-lg border px-4 py-2 transition-colors"
             >
               Next
-              {/* Source vector points left; the design points it right. */}
               <Image
                 src="/icons/arrow-circle.svg"
                 alt=""

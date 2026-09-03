@@ -12,9 +12,6 @@ export const GithubActivity = () => {
   const contributions = getCachedContributions(GITHUB_USERNAME);
 
   return (
-    // The <section> exists to carry the full-bleed rules, which need a real
-    // element — <Suspense> renders none. Putting them here rather than on the
-    // graph also keeps them steady across the fallback swap.
     <section className="screen-line-top screen-line-bottom py-4">
       <h2 className="sr-only">GitHub activity</h2>
 

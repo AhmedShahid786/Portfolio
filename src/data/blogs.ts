@@ -11,7 +11,6 @@ export type Reading = {
   blurb: string;
 };
 
-// TODO: real post URLs — the Figma frame has no links.
 export const POSTS = [
   {
     title: "How I accomplished nothing I wanted to by 14.",
@@ -29,7 +28,6 @@ export const POSTS = [
   },
 ] satisfies Post[];
 
-/** The single "Reading Now" slot under the post grid. */
 export const READING = {
   title: "Steal Like an Artist",
   author: "By Austin Kleon",

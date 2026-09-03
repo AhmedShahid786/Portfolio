@@ -1,11 +1,3 @@
-/*
- * Copied from chanhdai.com (MIT, (c) 2026 Chánh Đại) — src/lib/soundcn/sound-engine.ts
- *
- * Trimmed to the two functions useSound needs. The source also exports a
- * standalone playSound(); add it back from the original if a fire-and-forget
- * play (outside React) is ever wanted.
- */
-
 let audioContext: AudioContext | null = null;
 const bufferCache = new Map<string, AudioBuffer>();
 

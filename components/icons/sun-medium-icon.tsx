@@ -1,11 +1,3 @@
-/*
- * The sun mark from chanhdai.com (MIT, (c) 2026 Chánh Đại) —
- * src/components/animated-icons/sun-medium-icon.tsx, which is lucide's
- * `sun-medium` circle and eight rays.
- *
- * Same paths, static wrapper: theirs staggers the rays' opacity on hover via
- * motion/react. See [MoonIcon] for the same note.
- */
 const RAYS = [
   "M12 3v1",
   "M12 20v1",

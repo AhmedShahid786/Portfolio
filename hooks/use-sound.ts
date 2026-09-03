@@ -10,14 +10,6 @@ import type {
   UseSoundReturn,
 } from "@/lib/sound/sound-types";
 
-/*
- * Copied from chanhdai.com (MIT, (c) 2026 Chánh Đại) — src/hooks/soundcn/use-sound.ts
- *
- * Only change: motion/react's useReducedMotion swapped for a local media-query
- * hook, so this doesn't pull in an animation library. Reduced motion silences
- * sound here, which is the source's behaviour — a deliberate choice, since the
- * OS setting is the closest thing to a "no incidental effects" preference.
- */
 export function useSound(
   sound: SoundAsset,
   options: UseSoundOptions = {},
@@ -61,9 +53,7 @@ export function useSound(
     if (sourceRef.current) {
       try {
         sourceRef.current.stop();
-      } catch {
-        // Already stopped
-      }
+      } catch {}
       sourceRef.current = null;
     }
     setIsPlaying(false);
@@ -124,9 +114,7 @@ export function useSound(
       if (sourceRef.current) {
         try {
           sourceRef.current.stop();
-        } catch {
-          // Already stopped
-        }
+        } catch {}
       }
     };
   }, []);

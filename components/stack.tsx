@@ -2,20 +2,6 @@ import { STACK } from "@/src/data/stack";
 
 const ID = "stack";
 
-/**
- * A brand mark from `public/icons/`, painted in the current text colour.
- *
- * The marks are simple-icons: one black path, no `fill` attribute. Rendered
- * through <img> they would be black-on-black here, and the usual fix
- * (`brightness-0 invert`, what `projects.tsx` and `experience.tsx` do to the
- * full-colour PNG logos) hard-codes "the background is dark" into a component —
- * which is exactly what the one-class theme switch can't override later.
- *
- * Using the file as a mask over `bg-current` instead keeps the colour in the
- * token layer: the mark is whatever `text-*` says it is, in either theme. It
- * also keeps ~70KB of path data out of the HTML, since the SVGs stay files the
- * browser caches rather than markup the server re-sends on every request.
- */
 function TechIcon({ src }: { src: string }) {
   return (
     <span
@@ -31,7 +17,6 @@ function TechIcon({ src }: { src: string }) {
   );
 }
 
-/** `Databases & Queues` → `stack-databases-queues`, for aria-labelledby. */
 function categoryId(category: string) {
   return `${ID}-${category
     .toLowerCase()
@@ -46,16 +31,7 @@ export function Stack() {
         Stack
       </h2>
 
-      {/* Both custom properties are read further down: --badge-height sizes a
-          pill *and* sets the category label's line-height, so the label sits on
-          the same optical row as the first pill; --col-left-width is shared by
-          the grid's first track and the dotted rule that sits on its edge, so
-          the two cannot drift apart. */}
       <div className="relative [--badge-height:--spacing(6)] [--col-left-width:--spacing(48)]">
-        {/* The dotted column rule. A repeating 6px gradient tile rather than a
-            dashed border, so the dash/gap ratio is exact and doesn't change
-            with the element's height. Dropped below `sm`, where the two columns
-            stack and there is no boundary to draw. */}
         <div
           className="pointer-events-none absolute inset-y-0 left-(--col-left-width) -z-1 w-px bg-[linear-gradient(to_bottom,var(--border)_4px,transparent_2px)] bg-size-[1px_6px] bg-repeat-y max-sm:hidden"
           aria-hidden

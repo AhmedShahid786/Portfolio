@@ -4,29 +4,6 @@ import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
 import { cn } from "@/lib/utils";
 
-/*
- * From chanhdai.com (MIT, (c) 2026 Chánh Đại) —
- * src/components/base/ui/tooltip.tsx. Copied whole; four edits:
- *
- * 1. Named `base-tooltip` rather than `tooltip`, because upstream keeps two
- *    tooltips and so does this repo: the radix one in `tooltip.tsx` (the
- *    contribution graph's, `asChild`) and this Base UI one (the socials row's,
- *    `render`). Upstream separates them by directory — `src/components/ui/` vs
- *    `src/components/base/ui/` — which a flat repo can't do.
- * 2. Tokens remapped to this project's palette: his `--foreground` (the popup's
- *    fill and the arrow) is `--primary` here, and `--background` keeps its name.
- *    The tooltip is deliberately inverted — white sheet, black text.
- * 3. Dropped three `data-[state=delayed-open]:*` classes. They are radix
- *    leftovers; Base UI marks an open popup with `data-open`, never
- *    `data-state`, so they never matched (verified against his live DOM).
- * 4. `TooltipProvider` keeps his `delay = 0` default. That default *is* the hover
- *    feel — Base UI's own default is 600ms — so the provider has to be an
- *    ancestor of every tooltip, or they open sluggishly. It renders no DOM.
- *
- * The enter/exit animation (`animate-in`, `fade-in-0`, `zoom-in-95`,
- * `slide-in-from-*`) comes from `tw-animate-css`, imported in globals.css, same
- * as upstream.
- */
 function TooltipProvider({
   delay = 0,
   ...props

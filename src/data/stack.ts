@@ -1,23 +1,6 @@
-/**
- * The Stack section's content.
- *
- * Grouped rather than flat: the category order *is* the render order, so
- * reordering the page means reordering this array — there is no separate
- * ordering table to keep in sync. (chanhdai.com keeps a flat list with a
- * `categories: string[]` per item and groups at render time, which buys an item
- * appearing under two headings. Nothing here needs that, and the grouped shape
- * is the one a human can edit in place.)
- *
- * `icon` is a path under `public/`, not a component: `src/data/` holds no JSX.
- * The marks are simple-icons (CC0) — single-path, monochrome, no `fill`
- * attribute — so `components/stack.tsx` paints them with the theme's colour
- * through a CSS mask instead of shipping the path data in the HTML.
- */
 export type StackTech = {
-  /** Stable list key — independent of the title, so a rename doesn't remount. */
   key: string;
   title: string;
-  /** Official home page; the pill is a link. */
   href: string;
   icon: string;
 };

@@ -1,11 +1,5 @@
 import type { SoundAsset } from "@/lib/sound/sound-types";
 
-/*
- * Copied from chanhdai.com (MIT, (c) 2026 Chánh Đại) — src/lib/soundcn/click-soft.ts
- *
- * The sound is an inline base64 data URI, not a file in public/, so there is no
- * audio asset to manage. Kenney's original is CC0.
- */
 export const clickSoftSound: SoundAsset = {
   name: "click-soft",
   dataUri:

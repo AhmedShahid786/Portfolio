@@ -1,10 +1,5 @@
 import type { ReactNode } from "react";
 
-/**
- * The placeholder surface the design uses wherever real artwork is missing:
- * a noise texture darkened by a 60% black wash. Shared by the "coming soon"
- * project slot and the blog post covers.
- */
 export function NoisePanel({
   className = "",
   children,

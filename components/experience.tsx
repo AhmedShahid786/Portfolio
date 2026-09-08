@@ -14,21 +14,19 @@ function ExperienceEntry({ entry }: { entry: Entry }) {
     entry.company
   );
 
-  const when = entry.period ?? entry.duration;
-
   return (
     <div className="flex flex-col gap-1 p-4">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4">
         <h3 className="font-display text-lg leading-tight font-medium">
           {company}
         </h3>
-        {when && <span className="text-muted text-sm">{when}</span>}
+        {entry.mode && <span className="text-muted text-sm">{entry.mode}</span>}
       </div>
 
       <div className="flex flex-wrap items-baseline justify-between gap-x-4">
         <p className="text-secondary text-sm">{entry.role}</p>
-        {entry.location && (
-          <span className="text-muted text-sm">{entry.location}</span>
+        {entry.period && (
+          <span className="text-muted text-sm">{entry.period}</span>
         )}
       </div>
     </div>

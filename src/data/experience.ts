@@ -5,12 +5,10 @@ export type Work = { name: string; downloads: string; src: string };
 export type Entry = {
   company: string;
   companyUrl?: string;
-  logo: string;
+  logo?: string;
   role: string;
-  employment?: string;
-  location?: string;
+  mode?: string;
   period?: string;
-  duration?: string;
   summary?: string;
   stack: ExperienceTech[];
   projects: Work[];
@@ -18,9 +16,11 @@ export type Entry = {
 
 export const EXPERIENCE = [
   {
-    company: "Saylani Tech",
+    company: "Saylani Welfare International",
     logo: "/images/companies/saylani-tech.png",
-    role: "Senior Software Engineer",
+    role: "Software Engineer",
+    mode: "Onsite",
+    period: "Feb 2025 — Present",
     stack: [
       { name: "React", src: "/images/tech/react.png" },
       { name: "Aws", src: "/images/tech/aws.svg" },
@@ -31,17 +31,24 @@ export const EXPERIENCE = [
     projects: [],
   },
   {
+    company: "KAACIB",
+    role: "Software Engineer",
+    mode: "Hybrid",
+    period: "May 2024 — Feb 2025",
+    stack: [],
+    projects: [],
+  },
+  {
     company: "Islamic Desk",
     logo: "/images/companies/islamic-desk.png",
-    role: "Software Engineer",
-    employment: "Part Time",
+    role: "Software Engineer Intern",
+    mode: "Onsite",
+    period: "Feb 2023 — May 2024",
     summary:
       "I worked as a Software Engineer at Islamic Desk, contributing to the " +
       "development of Seerat ki Duniya, Nahw Ki Duniya, and Surf Ki Duniya. " +
       "My role involved creating effective solutions and working with the team " +
       "to introduce new functionalities.",
-    period: "2018 — 2022",
-    duration: "4 yrs",
     stack: [
       { name: "React", src: "/images/tech/react.png" },
       { name: "Firebase", src: "/images/tech/firebase.svg" },

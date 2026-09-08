@@ -1,9 +1,7 @@
 import { About } from "@/components/about";
-import { Blogs } from "@/components/blogs";
 import { Experience } from "@/components/experience";
 import { GithubActivity } from "@/components/github-activity";
 import { Hero } from "@/components/hero";
-import { Projects } from "@/components/projects";
 import { SectionSeparator } from "@/components/section-separator";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
@@ -26,8 +24,6 @@ export default function Home() {
           <SectionSeparator />
 
           <Stack />
-          <SectionSeparator />
-
           <SectionSeparator />
 
           <Experience />

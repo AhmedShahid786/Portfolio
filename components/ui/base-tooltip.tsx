@@ -50,10 +50,10 @@ function TooltipContent({
         <TooltipPrimitive.Popup
           data-slot="tooltip-content"
           className={cn(
-            "bg-primary text-background z-50 w-fit max-w-xs origin-(--transform-origin)",
+            "bg-background text-primary border-control z-50 w-fit max-w-xs origin-(--transform-origin) border-2",
             "data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 rounded-lg px-4 py-2 text-sm will-change-transform data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
             "data-instant:duration-0",
-            "selection:bg-background selection:text-primary",
+            "selection:bg-primary selection:text-background",
             className
           )}
           {...props}
@@ -61,7 +61,7 @@ function TooltipContent({
           {children}
           <TooltipPrimitive.Arrow
             className={cn(
-              "bg-primary fill-primary data-[side=bottom]:top-1 data-[side=left]:top-1/2! data-[side=left]:-right-1 data-[side=left]:-translate-y-1/2 data-[side=right]:top-1/2! data-[side=right]:-left-1 data-[side=right]:-translate-y-1/2 data-[side=top]:-bottom-2.5",
+              "bg-background fill-background border-control data-[side=top]:border-r-2 data-[side=top]:border-b-2 data-[side=bottom]:border-t-2 data-[side=bottom]:border-l-2 data-[side=left]:border-t-2 data-[side=left]:border-r-2 data-[side=right]:border-b-2 data-[side=right]:border-l-2 data-[side=bottom]:top-1 data-[side=left]:top-1/2! data-[side=left]:-right-1 data-[side=left]:-translate-y-1/2 data-[side=right]:top-1/2! data-[side=right]:-left-1 data-[side=right]:-translate-y-1/2 data-[side=top]:-bottom-2.5",
               "size-2.5 translate-y-[calc(-50%-2px)] rotate-45 rounded-xs",
               "data-[side=bottom]:rounded-br-sm data-[side=top]:rounded-tl-sm"
             )}

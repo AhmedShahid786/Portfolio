@@ -1,12 +1,23 @@
+import type { CSSProperties } from "react";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/base-tooltip";
 import { STACK } from "@/src/data/stack";
 
 const ID = "stack";
+
+const GRID_RULES =
+  "[&>li:nth-child(6n+1)]:border-l-0 [&>li:nth-child(6n+1):nth-last-child(-n+6)]:border-b-0 [&>li:nth-child(6n+1):nth-last-child(-n+6)~li]:border-b-0";
 
 function TechIcon({ src }: { src: string }) {
   return (
     <span
       aria-hidden
-      className="text-muted block size-3.5 shrink-0 bg-current"
+      className="block size-4 shrink-0 bg-current sm:size-6 md:size-8"
       style={{
         maskImage: `url("${src}")`,
         maskSize: "contain",
@@ -31,51 +42,52 @@ export function Stack() {
         Stack
       </h2>
 
-      <div className="relative [--badge-height:--spacing(6)] [--col-left-width:--spacing(48)]">
-        <div
-          className="pointer-events-none absolute inset-y-0 left-(--col-left-width) -z-1 w-px bg-[linear-gradient(to_bottom,var(--border)_4px,transparent_2px)] bg-size-[1px_6px] bg-repeat-y max-sm:hidden"
-          aria-hidden
-        />
+      <TooltipProvider>
+        <div className="diagonal-stripes">
+          <div className="border-border bg-background divide-border mx-4 divide-y border-x">
+            {STACK.map((group) => (
+              <div key={group.category} className="divide-border divide-y">
+                <h3
+                  id={categoryId(group.category)}
+                  className="font-display px-4 py-3 text-lg leading-tight font-medium"
+                >
+                  {group.category}
+                </h3>
 
-        {STACK.map((group, index) => (
-          <div
-            key={group.category}
-            className="border-border grid items-start gap-y-2 border-b py-4 last:border-none sm:grid-cols-[var(--col-left-width)_1fr]"
-          >
-            <div
-              id={categoryId(group.category)}
-              className="text-muted pl-4 text-sm/(--badge-height)"
-            >
-              <span
-                className="text-muted/50 mr-1.5 font-mono select-none"
-                aria-hidden
-              >
-                {(index + 1).toString().padStart(2, "0")}
-              </span>
-              {group.category}
-            </div>
-
-            <ul
-              aria-labelledby={categoryId(group.category)}
-              className="flex flex-wrap gap-1.5 px-4"
-            >
-              {group.items.map((item) => (
-                <li key={item.key} className="flex">
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-surface/80 text-primary inset-ring-border hover:bg-surface flex h-(--badge-height) items-center justify-center gap-1.5 rounded-full px-2 font-mono text-xs transition-colors inset-ring-1"
-                  >
-                    <TechIcon src={item.icon} />
-                    {item.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
+                <ul
+                  aria-labelledby={categoryId(group.category)}
+                  className={`grid grid-cols-6 ${GRID_RULES}`}
+                >
+                  {group.items.map((item) => (
+                    <li
+                      key={item.key}
+                      className="border-border flex border-b border-l"
+                    >
+                      <Tooltip>
+                        <TooltipTrigger
+                          render={
+                            <a
+                              href={item.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{ "--tech": item.color } as CSSProperties}
+                              className="text-muted hover:bg-surface hover:text-(--tech) focus-visible:bg-surface focus-visible:text-(--tech) focus-visible:inset-ring-muted/50 flex flex-1 items-center justify-center p-2 transition-colors outline-none focus-visible:inset-ring-3 sm:p-4 md:p-6"
+                            >
+                              <TechIcon src={item.icon} />
+                              <span className="sr-only">{item.title}</span>
+                            </a>
+                          }
+                        />
+                        <TooltipContent>{item.title}</TooltipContent>
+                      </Tooltip>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </TooltipProvider>
     </section>
   );
 }

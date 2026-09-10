@@ -43,9 +43,7 @@ export function Socials() {
                       />
                     }
                   />
-                  <TooltipContent>
-                    {handle ? `${title} (@${handle})` : title}
-                  </TooltipContent>
+                  <TooltipContent>{title}</TooltipContent>
                 </Tooltip>
               </li>
             );

@@ -44,7 +44,7 @@ export function Stack() {
 
       <TooltipProvider>
         <div className="diagonal-stripes">
-          <div className="border-border bg-background divide-border mx-4 divide-y border-x">
+          <div className="border-border bg-background divide-border mx-4 divide-y border-x border-b">
             {STACK.map((group) => (
               <div key={group.category} className="divide-border divide-y">
                 <h3
@@ -71,7 +71,7 @@ export function Stack() {
                               target="_blank"
                               rel="noopener noreferrer"
                               style={{ "--tech": item.color } as CSSProperties}
-                              className="text-muted hover:bg-surface hover:text-(--tech) focus-visible:bg-surface focus-visible:text-(--tech) focus-visible:inset-ring-muted/50 flex flex-1 items-center justify-center p-2 transition-colors outline-none focus-visible:inset-ring-3 sm:p-4 md:p-6"
+                              className="text-muted hover:text-(--tech) focus-visible:text-(--tech) focus-visible:inset-ring-muted/50 flex flex-1 items-center justify-center p-2 transition-colors outline-none focus-visible:inset-ring-3 sm:p-4 md:p-6"
                             >
                               <TechIcon src={item.icon} />
                               <span className="sr-only">{item.title}</span>
